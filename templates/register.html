@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            <table id="registerTable">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"> Join Today</legend>
+                <tr class="form-group">
+                    <!--This is the username tab that users can write in their username-->
+                    <td>{{ form.username.label(class="form-control-label") }}</td>
+                    <td>{{ form.username(class= "form-control-lg") }}</td>
+                </tr>
+                <tr class="form-group">
+                    <!--This is the email address tab that users can write in their email-->
+                    <td>{{ form.email.label(class= "form-control-label") }}</td>
+                    <td>{{ form.email(class= "form-control-lg") }}</td>
+                </tr>
+                <tr class="form-group">
+                    <!--This is the password tab that users can write in their password-->
+                    <td>{{ form.password.label(class= "form-control-label") }}</td>
+                    <td>{{ form.password(class= "form-control-lg") }}</td>
+                </tr>
+                <tr class="form-group">
+                    <!--This is the confirm password tab that users can re-enter their password-->
+                    <td>{{ form.confirmed_password.label(class= "form-control-label") }}</td>
+                    <td>{{ form.confirmed_password(class= "form-control-lg") }}</td>
+                </tr>
+            </fieldset>
+            <tr class="form-group">
+                <td colspan="2">{{ form.submit(class="btn btn-outline-info") }}</td>
+            </tr>
+            </table>
+        </form>
+    </div>
+    <div class ="border-top pt-3">
+        <small class ="text-muted">
+            <!--This is the already have an account button that will refer the user to the sign up page-->
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login')}}">Sign In</a>
+        </small>
+    </div>
+{% endblock content %}
